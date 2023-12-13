@@ -1,0 +1,36 @@
+
+
+.header {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+.top-navbar-item {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: #ffffff;
+}
+
+.top-navbar-item:hover {
+    color: #cccccc;
+}
+
+/*mobile-nav */
+
+.mobile-nav {
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    font-weight: 400;
+    z-index: 20;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.10);
+    -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.mobile-navbar-item:not(:first-child) {
+    margin-top: 22px;
+}

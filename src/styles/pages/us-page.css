@@ -1,0 +1,15 @@
+.back-us-card {
+    margin: 2em auto 8em;
+    max-width: 750px;
+    width: 90%;
+}
+
+.back-button {
+    background-color: #089e1e;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0.75rem 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    border-radius: 2rem;
+}

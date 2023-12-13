@@ -1,0 +1,11 @@
+.language-dropdown-container {
+    color: #ffffff;
+}
+
+.dropdown {
+    left: -0.75rem;
+    background-color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    color: black;
+}

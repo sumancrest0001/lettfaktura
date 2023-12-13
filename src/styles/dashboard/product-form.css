@@ -1,0 +1,30 @@
+.input-field {
+    border-radius: 12px;
+    border: 1px solid #ADCCE9;
+    width: 100%;
+    padding: 0.25rem;
+}
+
+.save-button,
+.cancel-button:hover {
+    width: 120px;
+    background-color: #0F7EE9;
+    font-weight: 600;
+    font-size: 15px;
+    color: #FFFFFF;
+    padding: 11px 0 9px 0;
+    border: 1px solid #0F7EE9;
+    margin: auto;
+}
+
+.cancel-button,
+.save-button:hover {
+    width: 120px;
+    color: #0F7EE9;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #0F7EE9;
+    padding: 11px 0 9px 0;
+    margin: auto;
+}
