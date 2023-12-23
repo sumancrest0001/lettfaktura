@@ -9,9 +9,9 @@ export const useConfig = () => {
         const fetchLanguageData = async () => {
           try {
             const response = await axios.get(
-              `https://online.123fakturere.no/api/v1/config`,
+              `https://657f24cc9d10ccb465d60cee.mockapi.io/config`,
             );
-              setConfigData(response.data);
+              setConfigData(response.data[0]);
           } catch (error) {
               console.log(error);        
         }

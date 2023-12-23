@@ -1,6 +1,7 @@
 
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve. 
 After that apply all the rules in module.rules and produce the output and place it in main.js in the public folder.*/
 const cssLoader = 'css-loader';
@@ -18,8 +19,8 @@ module.exports={
      */
     entry: "./src/index.js", 
     output: {
-        path: path.resolve(__dirname, "public"),
-        publicPath: '/',
+        path: path.resolve(__dirname, "build"),
+        publicPath: 'index_bundle.js',
     },
     /** "target"
      * setting "node" as target app (server side), and setting it as "web" is 
@@ -34,7 +35,9 @@ module.exports={
         /** "static" 
          * This property tells Webpack what static file it should serve
         */
-        static: ["./public"],
+        static: {
+          directory: path.join(__dirname, 'public')
+        },
         /** "open" 
          * opens the browser after server is successfully started
         */
@@ -120,9 +123,14 @@ module.exports={
 			},
 		],
     },
-    plugins: [
+   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: path.join(__dirname, 'public', 'index.html')
     }),
-  ],
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'public', 'assets'), to: path.resolve(__dirname, 'build', 'assets') },
+      ],
+    })
+  ]
 }

@@ -19,11 +19,12 @@ export default function LanguageDropdown({configData, className}) {
    useEffect(() => {
     if(configData?.languages) {
         try{
-            const defaultLanguage = configData.languages.find(langauge => langauge.is_default);
+            const defaultLanguage = configData.languages.find(langauge => langauge.is_default);  
             const getLanguages = async () => {
-                const res = await axios.get(`https://online.123fakturera.se/api/v1/locals/${defaultLanguage.code}`);
+                const res = await axios.get(`https://657f24cc9d10ccb465d60cee.mockapi.io/languages`);
                 const updatedLanguages = {...languages.languages}
-                updatedLanguages[defaultLanguage.code] = res.data;
+                const selectedLang = res.data.find(item => item.name === defaultLanguage.code);
+                updatedLanguages[defaultLanguage.code] = selectedLang.value;
                 dispatch(languageActions.addLanguage({languages: updatedLanguages, selectedLanguage: defaultLanguage.code}));
                 setSelectedOption(defaultLanguage);
             };
@@ -40,17 +41,16 @@ export default function LanguageDropdown({configData, className}) {
 
   const handleLanguageChange = async({languageOption}) => {
     try{
-    const res = await axios.get(`https://online.123fakturere.no/api/v1/locals/${languageOption.code}`);
+    const res = await axios.get(`https://657f24cc9d10ccb465d60cee.mockapi.io/languages`);
         const updatedLanguages = {...languages.languages}
-        updatedLanguages[languageOption.code] = res.data;
+        const selectedLang = res.data.find(item => item.name === languageOption.code);
+        updatedLanguages[languageOption.code] = selectedLang.value;
         dispatch(languageActions.addLanguage({languages: updatedLanguages, selectedLanguage: languageOption.code}));
         setSelectedOption(languageOption);   
         setShow(false); 
     }catch(error) {
         console.log(error)
-    }
-         
-   }
+    }}
   return (
     <div className={`relative ${className} text-white language-dropdown-container z-10`}>
      {selectedOption && (
